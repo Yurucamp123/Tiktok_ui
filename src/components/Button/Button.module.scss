@@ -68,7 +68,10 @@
 .title + .icon {
     margin-left: 8px;
 }
-
+.icon {
+    width: 24px;
+    text-align: center;
+}
 // button type
 .small {
     padding: 4px 16px;
