@@ -1,0 +1,40 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: rgb(254 44 85);
+    --white-color: #fff;
+    --black-color: #000;
+    // default layout
+    --header-width-default: 1150px;
+    --header-height-default: 60px;
+    --text-color: #333;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', 'sans-serif';
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    text-rendering: 'optimizespeed';
+    color: var(--text-color);
+}
+
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+}
+
+a[href] {
+    text-decoration: none;
+}
