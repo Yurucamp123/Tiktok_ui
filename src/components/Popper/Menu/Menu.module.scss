@@ -19,12 +19,16 @@
 .menu-popper {
     padding-bottom: 8px;
 }
+.menu-scrollrable {
+    overflow-y: auto;
+}
 
 // menu header
 .header {
     position: relative;
     height: 50px;
     margin-top: -8px;
+    flex-shrink: 0;
 }
 .back-btn {
     width: 50px;

@@ -1,6 +1,7 @@
 import Tippy from '@tippyjs/react/headless'; // different import path!
 import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
+import PropTypes from 'prop-types';
 
 import { PopperWrapper } from '~/components/Popper';
 import MenuItem from './MenuItem';
@@ -10,7 +11,7 @@ import { useState } from 'react';
 const cx = classNames.bind(styles);
 const dfChange = () => {};
 
-function Menu({ children, items = [], onChange = dfChange }) {
+function Menu({ children, items = [], onChange = dfChange }, hideOnClick = false) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -46,10 +47,10 @@ function Menu({ children, items = [], onChange = dfChange }) {
                                 onBack={() => {
                                     setHistory((prev) => prev.slice(0, prev.length - 1));
                                 }}
-                                title="Languages"
+                                title={current.title}
                             />
                         )}
-                        {renderItems()}
+                        <div className={cx('menu-scrollrable')}>{renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}
@@ -58,10 +59,19 @@ function Menu({ children, items = [], onChange = dfChange }) {
                 setHistory((prev) => prev.slice(0, 1));
             }}
             offset={[8, 12]}
+            hideOnClick={hideOnClick}
         >
             {children}
         </Tippy>
     );
 }
+
+Menu.propTypes = {
+    children: PropTypes.node.isRequired,
+    items: PropTypes.array,
+    onChange: PropTypes.func,
+    dfChange: PropTypes.func,
+    hideOnClick: PropTypes.bool,
+};
 
 export default Menu;

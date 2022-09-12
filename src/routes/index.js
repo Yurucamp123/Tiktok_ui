@@ -5,24 +5,26 @@ import Following from '~/pages/Following';
 import Profile from '~/pages/Profile';
 import Upload from '~/pages/Upload';
 
-import { HeaderOnly } from '~/components/Layout';
+import config from '~/config';
+
+import { HeaderOnly } from '~/layouts';
 
 export const publicRoutes = [
     {
-        path: '/',
+        path: config.routes.home,
         component: Home,
     },
     {
-        path: '/following',
+        path: config.routes.following,
         component: Following,
     },
     {
-        path: '/profile',
+        path: config.routes.profile,
         component: Profile,
         Layout: HeaderOnly,
     },
     {
-        path: '/upload',
+        path: config.routes.upload,
         component: Upload,
         Layout: null,
     },
